@@ -75,7 +75,7 @@ def patch():
             response = openai.Completion.create(
                 engine=args.openai_engine,
                 # prompt=(f"Summarize what was done in this diff:\n```{diff_text}```"),
-                prompt=(f"I want you to act as a developer code reviewer of this Pull Request. I will provide you the code changes made of this Pull Request. You will help me identify potential bugs in this code, give important suggestions on improving the code quality and maintainability, and check if it adheres to coding standards and best practices.The following diff is the changes made in this PR.\n```{diff_text}```"),
+                prompt=(f"我想让你作为这个 Pull Request 的代码评审员。我将为您提供此 Pull Request 的代码更改。您将帮助我识别这段代码中的潜在错误、给出关于提高代码质量和可维护性的重要建议，并检查它是否符合编码标准和最佳实践。下面是在这个 Pull Request 中所做的代码更改：\n```{diff_text}```"),
                 temperature=float(args.openai_temperature),
                 max_tokens=int(args.openai_max_tokens)
             )
