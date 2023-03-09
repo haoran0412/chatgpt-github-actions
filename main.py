@@ -74,7 +74,8 @@ def patch():
 
             response = openai.Completion.create(
                 engine=args.openai_engine,
-                prompt=(f"Summarize what was done in this diff:\n```{diff_text}```"),
+                # prompt=(f"Summarize what was done in this diff:\n```{diff_text}```"),
+                prompt=(f"你能帮我检查这个 Pull Request 的改动存在什么问题？如果存在问题，请给我一些改动建议。代码变动如下：\n```{diff_text}```"),
                 temperature=float(args.openai_temperature),
                 max_tokens=int(args.openai_max_tokens)
             )
